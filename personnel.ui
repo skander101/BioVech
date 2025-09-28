@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>personnel</class>
+ <widget class="QMainWindow" name="personnel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1185</width>
+    <height>908</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Personnel Management</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Global Window Style */
+QMainWindow {
+ border-image: url(&quot;:/Static/Static/white_bg.jpg&quot;);
+ background-size: contain;
+}
+/* Header Logo (Adjusted Size Constraints) */
+QLabel#biovec_logo {
+    margin-left: 25px; /* Keep margin */
+    min-width: 50px;
+    max-width: 250px;
+    min-height: 80px;
+    max-height: 80px;
+    qproperty-alignment: AlignCenter;
+    background-color: transparent;
+    image: url(:/Static/Static/logo.png);
+}
+
+/* Sidebar Dock Widget */
+QDockWidget {
+    border: none;
+    background-color: #ffffff;
+}
+
+QDockWidget::title {
+    background-color: #208c54;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* Sidebar Header Logo */
+QLabel#label_logo {
+
+    min-width: 50px;
+    max-width: 250px;
+    min-height:100px;
+    max-height: 150px;
+    qproperty-alignment: 'AlignCenter';
+    image: url(:/Static/Static/dashboard.png);
+
+}
+
+/* Sidebar Button Styles - TEXT MADE LARGER */
+QDockWidget QPushButton {
+    background-color: #208c54;
+    color: #f6f8fa;
+   padding: 18px 32px 18px 25px; /* Slightly increased vertical padding */
+    text-align: left;
+    border: none;
+    border-radius: 0;
+    font-size: 18px;  /* INCREASED FONT SIZE */
+    font-weight: bold;
+}
+
+QDockWidget QPushButton:hover {
+    background-color: #27ae77;
+}
+
+QDockWidget QPushButton:pressed {
+    background-color: #27ae80;
+}
+
+/* Sidebar Icon Styles - ICONS MADE LARGER */
+QDockWidget QLabel { /* Selects icons within the DockWidget */
+    min-width: 60px;   /* INCREASED ICON SIZE */
+    min-height:60px;  /* INCREASED ICON SIZE */
+    max-width: 60px;   /* INCREASED ICON SIZE */
+    max-height: 60px;  /* INCREASED ICON SIZE */
+    qproperty-alignment: 'AlignCenter';
+         margin-left: 4px;
+}
+
+/* GroupBox Styles - PADDING/MARGIN REDUCED */
+QGroupBox {
+    border: 1px solid #2ecc71;
+    border-radius: 8px;
+    margin-top: 12px; /* REDUCED margin-top slightly */
+    font-weight: bold;
+    background-color: #ffffff;
+    padding: 4px; /* REDUCED padding inside the groupbox */
+}
+QGroupBox QPushButton{
+    border-radius:20px; /* Adjusted to match general button radius */
+    font-weight: bold;
+    padding: 10px 20px; /* Adjusted padding to match general buttons */
+    font-size: 15px; /* Match general button font size */
+    min-height: 35px; /* Match general button height */
+}
+
+QGroupBox QLineEdit, QGroupBox QSpinBox, QGroupBox QDoubleSpinBox { /* Added SpinBox styling */
+    border: 1px solid #2ecc71;
+    border-radius: 18px; /* Match general input radius */
+    padding: 8px 12px; /* Match general input padding */
+    background-color: #ffffff;
+    font-size: 15px; /* Match general input font size */
+    min-height: 35px; /* Match general input height */
+}
+
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px 0 5px;
+    color: #27ae60;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+/* Table Widget Styles */
+QTableWidget {
+    border: 1px solid #2ecc71;
+    border-radius: 8px;
+    alternate-background-color: #f9f9f9;
+    background-color: #ffffff;
+    font-size: 15px;
+    selection-behavior: SelectRows;
+    selection-background-color: #AFE1AF;
+    selection-color: #000000;
+    gridline-color: #e0e0e0;
+}
+
+QTableWidget::item { /* Added item alignment from original personnel */
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+QTableWidget::item:selected {
+    background-color: #27ae60;
+    color: white;
+}
+
+QHeaderView::section {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px; /* Adjusted padding */
+    border: none;
+    border-bottom: 1px solid #208c54;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* General Button Styles */
+QPushButton {
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 18px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 15px;
+    min-height: 35px;
+}
+
+QPushButton:hover {
+    background-color: #27ae60;
+}
+
+QPushButton:pressed {
+    background-color: #1e8449;
+}
+
+/* Specific Button Styles */
+QPushButton#pushButton_delete { /* Kept original personnel delete style for difference */
+    background-color: #e74c3c;
+    color: white;
+}
+QPushButton#pushButton_delete:hover {
+    background-color: #c0392b;
+}
+QPushButton#pushButton_delete:pressed {
+    background-color: #a93226;
+}
+
+QPushButton#pushButton_clear { /* Kept original personnel clear style for difference */
+   background-color: #95a5a6;
+   color: white;
+}
+QPushButton#pushButton_clear:hover {
+    background-color: #7f8c8d;
+}
+QPushButton#pushButton_clear:pressed {
+    background-color: #6c7a7d;
+}
+
+/* Input Field Styles */
+QLineEdit, QDateEdit, QComboBox, QSpinBox, QDoubleSpinBox { /* Added SpinBox/DoubleSpinBox */
+    border: 1px solid #2ecc71;
+    border-radius: 18px;
+    padding: 8px 12px;
+    background-color: #ffffff;
+    font-size: 15px;
+    min-height: 35px;
+}
+
+/* Specific SpinBox styling if needed */
+QSpinBox::up-button, QDoubleSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: top right;
+    width: 16px;
+    border-image: url(:/qt-project.org/styles/commonstyle/images/spinup-16x16.png); /* Example icon */
+    border-width: 1px;
+}
+QSpinBox::down-button, QDoubleSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right;
+    width: 16px;
+    border-image: url(:/qt-project.org/styles/commonstyle/images/spindown-16x16.png); /* Example icon */
+    border-width: 1px;
+}
+QSpinBox::up-button:hover, QDoubleSpinBox::up-button:hover,
+QSpinBox::down-button:hover, QDoubleSpinBox::down-button:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* Label Styles */
+QLabel {
+    color: #2c3e50;
+    font-size: 15px; /* Adjusted font size */
+    background-color: transparent;
+    padding: 2px;
+}
+/* Align specific labels from personnel form if needed */
+QLabel#idLabel, QLabel#NomLabel, QLabel#PrenomLabel, QLabel#AgeLabel, QLabel#SalaireLabel, QLabel#PosteLabel, QLabel#AssuranceLabel, QLabel#PasswordLabel {
+    qproperty-alignment: 'AlignRight | AlignVCenter'; /* Keep right alignment for form labels */
+    padding-right: 5px; /* Add some padding */
+}
+
+
+/* Main Tab Widget */
+QTabWidget::pane {
+    border:1px solid #2ecc71;
+    border-radius: 20px 20px 20px;
+    border-top: none;
+    background: white;
+    padding: 10px;
+}
+
+QTabBar::tab {
+    background: #208c54;
+    color: white;
+    border: 0px solid #208c54;
+    border-bottom: none;
+    border-radius: 23px 23px 0 0;
+    padding: 10px 20px;
+    margin-right: 4px;
+    font: bold 14pt &quot;Segoe UI&quot;;
+    min-width: 10px;
+}
+
+QTabBar::tab:selected {
+    background: #ffffff;
+    color: #208c54;
+    border-color: #2ecc71;
+}
+
+QTabBar::tab:!selected:hover {
+    background: #1E8F53;
+    color: white;
+}
+
+QTabWidget::tab-bar {
+    alignment: left;
+    left: 5px;
+}
+
+/* Calendar styles are kept from appointment UI but won't be used unless a calendar is added */
+QCalendarWidget {
+    /* Background Color */
+    background-color: #29aa63;
+    color: #ffffff; /* White text */
+    font-family: &quot;Segoe UI&quot;, &quot;Arial&quot;, sans-serif;
+    font-size: 16px;
+    border: none;
+    border-radius: 15px; /* Rounded corners */
+}
+/* ... (rest of the calendar styles from appointment.ui) ... */
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="1" column="1" rowspan="2">
+     <widget class="QDockWidget" name="dockWidget_Sidebar">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="features">
+       <set>QDockWidget::DockWidgetFeature::NoDockWidgetFeatures</set>
+      </property>
+      <property name="allowedAreas">
+       <set>Qt::DockWidgetArea::LeftDockWidgetArea</set>
+      </property>
+      <property name="windowTitle">
+       <string>Navigation</string>
+      </property>
+      <widget class="QWidget" name="dockWidgetContents">
+       <layout class="QVBoxLayout" name="sidebarVerticalLayout">
+        <property name="spacing">
+         <number>15</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_logo">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="buttonsVerticalLayout">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="patientLayout">
+            <item>
+             <widget class="QLabel" name="patient_icon">
+              <property name="styleSheet">
+               <string notr="true">image: url(:/Static/Static/1.png);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="patientButton">
+              <property name="text">
+               <string>Patient</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="microvacLayout">
+            <item>
+             <widget class="QLabel" name="microvac_icon">
+              <property name="styleSheet">
+               <string notr="true">image: url(:/Static/Static/2.png);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="microvacButton">
+              <property name="text">
+               <string>MicroVac</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="personnelLayout">
+            <item>
+             <widget class="QLabel" name="personnel_icon">
+              <property name="styleSheet">
+               <string notr="true">image: url(:/Static/Static/3.png);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="personnelButton">
+              <property name="text">
+               <string>Personnel</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="inventoryLayout">
+            <item>
+             <widget class="QLabel" name="inventory_icon">
+              <property name="styleSheet">
+               <string notr="true">image: url(:/Static/Static/4.png);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="inventoryButton">
+              <property name="text">
+               <string>Inventory</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="appointmentLayout">
+            <item>
+             <widget class="QLabel" name="appointment_icon">
+              <property name="styleSheet">
+               <string notr="true">image: url(:/Static/Static/5.png);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="appointmentButton">
+              <property name="text">
+               <string>Appointment</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="eventLayout">
+            <item>
+             <widget class="QLabel" name="event_icon">
+              <property name="styleSheet">
+               <string notr="true">image: url(:/Static/Static/6.png);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="eventButton">
+              <property name="text">
+               <string>Event</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="analyticsLayout">
+            <item>
+             <widget class="QLabel" name="analytics_icon">
+              <property name="styleSheet">
+               <string notr="true">image: url(:/Static/Static/7.png);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="analyticsButton">
+              <property name="text">
+               <string>Analytics</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="helpLayout">
+            <item>
+             <widget class="QLabel" name="help_icon">
+              <property name="styleSheet">
+               <string notr="true">image: url(:/Static/Static/8.png);</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="helpButton">
+              <property name="text">
+               <string>Help/Support</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="biovec_logo">
+      <property name="styleSheet">
+       <string notr="true">/* Style defined globally via object name */</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>1</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_Management">
+       <attribute name="title">
+        <string>Management</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox_PersonnelDetails">
+          <property name="title">
+           <string>Employee Details</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_DetailsForm">
+           <property name="horizontalSpacing">
+            <number>20</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>10</number>
+           </property>
+           <item row="3" column="3">
+            <widget class="QLabel" name="PasswordLabel">
+             <property name="text">
+              <string>Password:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="idEdit">
+             <property name="placeholderText">
+              <string>Enter ID</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLabel" name="SalaireLabel">
+             <property name="text">
+              <string>Salary:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="idLabel">
+             <property name="text">
+              <string>ID:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="NomEdit">
+             <property name="placeholderText">
+              <string>Enter Family Name</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="5">
+            <layout class="QHBoxLayout" name="horizontalLayout_Actions">
+             <item>
+              <widget class="QPushButton" name="pushButton_add">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>Add a new employee with the details above</string>
+               </property>
+               <property name="text">
+                <string>Add</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_update">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>Update the selected employee using the ID</string>
+               </property>
+               <property name="text">
+                <string>Update</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_clear">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>Clear all fields in the form</string>
+               </property>
+               <property name="text">
+                <string>Clear</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_delete">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="toolTip">
+                <string>Delete the selected employee</string>
+               </property>
+               <property name="text">
+                <string>Delete</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLabel" name="PosteLabel">
+             <property name="text">
+              <string>Position:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QDoubleSpinBox" name="Salairedoublespinbox">
+             <property name="buttonSymbols">
+              <enum>QAbstractSpinBox::ButtonSymbols::PlusMinus</enum>
+             </property>
+             <property name="maximum">
+              <double>99999.990000000005239</double>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="PrenomLabel">
+             <property name="text">
+              <string>First Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="NomLabel">
+             <property name="text">
+              <string>Last Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="PrenomEdit">
+             <property name="placeholderText">
+              <string>Enter Name</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="AgeLabel">
+             <property name="text">
+              <string>Age:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="AssuranceLabel">
+             <property name="text">
+              <string>Insurance:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="AssuranceEdit">
+             <property name="placeholderText">
+              <string>Enter Insurance Type</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="QLineEdit" name="PasswordEdit">
+             <property name="echoMode">
+              <enum>QLineEdit::EchoMode::Password</enum>
+             </property>
+             <property name="placeholderText">
+              <string>Enter Password</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QSpinBox" name="Agespinbox"/>
+           </item>
+           <item row="2" column="2">
+            <widget class="QPushButton" name="cameraButton">
+             <property name="text">
+              <string>facerecon</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLineEdit" name="facecode">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Facecode Holder</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QComboBox" name="Post">
+             <property name="placeholderText">
+              <string>Choose your position</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Analyst</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Developper</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Designer</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Manager</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_SearchFilter">
+          <item>
+           <widget class="QLineEdit" name="searchPersonnel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>1</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="placeholderText">
+             <string>Search personnel (e.g., by Name, ID, Position)...</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="filterButton">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Apply filters (e.g., position, salary range)</string>
+            </property>
+            <property name="text">
+             <string>Filter</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="exportPdfButton">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Export current view to PDF</string>
+            </property>
+            <property name="text">
+             <string>Export PDF</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="statisticsButton">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>View personnel statistics</string>
+            </property>
+            <property name="text">
+             <string>Statistics</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <widget class="QTableWidget" name="tab_Personnel">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>2</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="editTriggers">
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+          </property>
+          <property name="showGrid">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Last Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>First Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Position</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Salary</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Age</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Insurance</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>patientButton</tabstop>
+  <tabstop>microvacButton</tabstop>
+  <tabstop>personnelButton</tabstop>
+  <tabstop>inventoryButton</tabstop>
+  <tabstop>appointmentButton</tabstop>
+  <tabstop>eventButton</tabstop>
+  <tabstop>analyticsButton</tabstop>
+  <tabstop>helpButton</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>idEdit</tabstop>
+  <tabstop>Agespinbox</tabstop>
+  <tabstop>NomEdit</tabstop>
+  <tabstop>Salairedoublespinbox</tabstop>
+  <tabstop>PrenomEdit</tabstop>
+  <tabstop>AssuranceEdit</tabstop>
+  <tabstop>PasswordEdit</tabstop>
+  <tabstop>pushButton_add</tabstop>
+  <tabstop>pushButton_update</tabstop>
+  <tabstop>pushButton_clear</tabstop>
+  <tabstop>pushButton_delete</tabstop>
+  <tabstop>searchPersonnel</tabstop>
+  <tabstop>filterButton</tabstop>
+  <tabstop>exportPdfButton</tabstop>
+  <tabstop>statisticsButton</tabstop>
+  <tabstop>tab_Personnel</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

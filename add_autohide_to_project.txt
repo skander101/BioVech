@@ -1,0 +1,28 @@
+Instructions for Adding the AutoHideDockWidget Files to Your Qt Project:
+
+1. Open your project in Qt Creator
+
+2. Right-click on your project in the Project Explorer and select "Add Existing Files..."
+
+3. Navigate to your project directory and select both:
+   - autohidedockwidget.h
+   - autohidedockwidget.cpp
+
+4. Click "Open" to add these files to your project
+
+5. Right-click on your project and select "Run qmake"
+
+6. Clean your project by selecting Build -> Clean All
+
+7. Rebuild your project by selecting Build -> Rebuild All
+
+Alternative Solution:
+
+If the above doesn't work:
+
+1. Copy the files to your build directory:
+   - Copy autohidedockwidget.h and autohidedockwidget.cpp to:
+     build/Desktop_Qt_6_9_0_MSVC2022_64bit-Debug/
+
+2. Continue using your project, but note that any changes to these files will need
+   to be manually copied to the build directory each time. 

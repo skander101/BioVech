@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/Static">
+        <file>Static/1.png</file>
+        <file>Static/2.png</file>
+        <file>Static/3.png</file>
+        <file>Static/4.png</file>
+        <file>Static/5.png</file>
+        <file>Static/6.png</file>
+        <file>Static/7.png</file>
+        <file>Static/dashboard.png</file>
+        <file>Static/github logo.png</file>
+        <file>Static/IOS_Google_icon.png</file>
+        <file>Static/white_bg.jpg</file>
+        <file>Static/8.png</file>
+        <file>Static/logo.png</file>
+    </qresource>
+</RCC>
