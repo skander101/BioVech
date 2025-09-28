@@ -1,0 +1,12 @@
+# ninja log v6
+62	347	7616879654733050	test8_autogen/timestamp	3f9fb48d6cd9bf35
+62	347	7616879654733050	test8_autogen/mocs_compilation.cpp	3f9fb48d6cd9bf35
+62	347	7616879654733050	C:/Users/Dell/OneDrive/Desktop/bytebuilders/test8/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/test8_autogen/timestamp	3f9fb48d6cd9bf35
+1517	5629	7616631539257765	CMakeFiles/test8.dir/main.cpp.obj	2537315abac2a54e
+62	347	7616879654733050	C:/Users/Dell/OneDrive/Desktop/bytebuilders/test8/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/test8_autogen/mocs_compilation.cpp	3f9fb48d6cd9bf35
+49	2403	7616631738837210	CMakeFiles/test8.dir/test8_autogen/mocs_compilation.cpp.obj	f03006806cc41d76
+349	7026	7616879657631817	CMakeFiles/test8.dir/credentials.cpp.obj	c9d02797ec9bb8a9
+7027	7397	7616879724405363	test8.exe	19c31c024f000cc9
+1350	1512	7616631539077857	test8_autogen/EWIEGA46WW/qrc_Static.cpp	97e7af7531a9ff7
+1525	3978	7616631539347704	CMakeFiles/test8.dir/test8_autogen/EWIEGA46WW/qrc_Static.cpp.obj	7fc274960cf0f828
+1350	1512	7616631539077857	C:/Users/Dell/OneDrive/Desktop/bytebuilders/test8/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/test8_autogen/EWIEGA46WW/qrc_Static.cpp	97e7af7531a9ff7

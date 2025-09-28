@@ -1,0 +1,73 @@
+import sys
+import os
+import numpy as np
+from deepface import DeepFace
+from deepface.commons import functions
+import tensorflow as tf
+
+def generate_face_embedding(image_path):
+    """Generates a unique face embedding code from an image"""
+    
+    try:
+        print(f"Processing image: {image_path}")
+        
+        # Load the face recognition model (VGG-Face)
+        model = DeepFace.build_model("VGG-Face")
+        
+        # Detect face and extract the region
+        face_objs = functions.extract_faces(
+            img=image_path,
+            target_size=(224, 224),
+            detector_backend='opencv'
+        )
+        
+        if len(face_objs) == 0:
+            print("ERROR: No face detected in the image")
+            return
+        
+        if len(face_objs) > 1:
+            print(f"Multiple faces detected. Using the first face.")
+        
+        face_array = face_objs[0]['face']
+        
+        # Preprocess the face image for the model
+        face_array = functions.normalize_input(face_array, normalization='base')
+        
+        # Get the embedding vector
+        embedding = model.predict(np.expand_dims(face_array, axis=0))[0]
+        
+        # Create a unique identifier string
+        # Normalize the embedding to enhance consistency
+        normalized_embedding = embedding / np.linalg.norm(embedding)
+        
+        # Convert to a compact hexadecimal representation
+        # Use first 128 dimensions for a reasonable-sized string
+        compact_embedding = ""
+        for i in range(min(128, len(normalized_embedding))):
+            # Convert float values to hex string (0-255 range)
+            val = int((normalized_embedding[i] + 1) * 127.5)
+            compact_embedding += f"{val:02x}"
+        
+        print(f"Face Embedding Unique ID:\n\n{compact_embedding}")
+        
+        # Show full embedding vector (truncated)
+        print(f"\n\nRaw Embedding Vector (first 10 values):\n")
+        for i in range(min(10, len(embedding))):
+            print(f"{embedding[i]:.6f}")
+        
+        print(f"\n\nTotal vector length: {len(embedding)} dimensions")
+        
+    except Exception as e:
+        print(f"ERROR: {str(e)}")
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: python face_embedding_processor.py <image_path>")
+        sys.exit(1)
+    
+    image_path = sys.argv[1]
+    if not os.path.exists(image_path):
+        print(f"ERROR: Image file not found: {image_path}")
+        sys.exit(1)
+    
+    generate_face_embedding(image_path)

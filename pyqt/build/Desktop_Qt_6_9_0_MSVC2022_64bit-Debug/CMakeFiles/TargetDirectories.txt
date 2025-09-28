@@ -1,0 +1,5 @@
+C:/Users/Mega-Pc/3D Objects/pyqt/build/Desktop_Qt_6_9_0_MSVC2022_64bit-Debug/CMakeFiles/face_comparison.dir
+C:/Users/Mega-Pc/3D Objects/pyqt/build/Desktop_Qt_6_9_0_MSVC2022_64bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Mega-Pc/3D Objects/pyqt/build/Desktop_Qt_6_9_0_MSVC2022_64bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Mega-Pc/3D Objects/pyqt/build/Desktop_Qt_6_9_0_MSVC2022_64bit-Debug/CMakeFiles/face_comparison_autogen_timestamp_deps.dir
+C:/Users/Mega-Pc/3D Objects/pyqt/build/Desktop_Qt_6_9_0_MSVC2022_64bit-Debug/CMakeFiles/face_comparison_autogen.dir
