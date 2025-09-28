@@ -1,0 +1,2 @@
+git lfs track "*.fst  # Track Photoshop files
+git lfs track "*.dat"  # Track Photoshop files
