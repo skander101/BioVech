@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/falla7">
+        <file>logo.png</file>
+        <file>sidebarupfull.png</file>
+        <file>1.png</file>
+        <file>2.png</file>
+        <file>3.png</file>
+        <file>4.png</file>
+        <file>5.png</file>
+        <file>6.png</file>
+        <file>7.png</file>
+        <file>Static/1.png</file>
+        <file>Static/2.png</file>
+        <file>Static/3.png</file>
+        <file>Static/4.png</file>
+        <file>Static/5.png</file>
+        <file>Static/6.png</file>
+        <file>Static/7.png</file>
+        <file>Static/8.png</file>
+        <file>Static/dashboard.png</file>
+        <file>Static/github logo.png</file>
+        <file>Static/IOS_Google_icon.png</file>
+        <file>Static/logo_small.png</file>
+    </qresource>
+</RCC>

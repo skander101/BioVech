@@ -1,0 +1,14 @@
+debug/autohidedockwidget.o
+debug/chatbot.o
+debug/connection.o
+debug/createChatbotTab.o
+debug/directapiclient.o
+debug/main.o
+debug/mainwindow.o
+debug/patient.o
+debug/qrc_images.o
+debug/qrc_static.o
+debug/moc_autohidedockwidget.o
+debug/moc_chatbot.o
+debug/moc_directapiclient.o
+debug/moc_mainwindow.o

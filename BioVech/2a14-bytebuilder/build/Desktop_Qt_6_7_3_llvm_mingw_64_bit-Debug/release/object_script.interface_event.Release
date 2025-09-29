@@ -1,0 +1,14 @@
+release/autohidedockwidget.o
+release/chatbot.o
+release/connection.o
+release/createChatbotTab.o
+release/directapiclient.o
+release/main.o
+release/mainwindow.o
+release/patient.o
+release/qrc_images.o
+release/qrc_static.o
+release/moc_autohidedockwidget.o
+release/moc_chatbot.o
+release/moc_directapiclient.o
+release/moc_mainwindow.o
