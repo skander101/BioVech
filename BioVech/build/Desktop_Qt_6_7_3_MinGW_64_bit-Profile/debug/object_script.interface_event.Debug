@@ -1,0 +1,15 @@
+debug/Dialogue.o
+debug/Evenement.o
+debug/autohidedockwidget.o
+debug/codearea.o
+debug/connection.o
+debug/main.o
+debug/mainwindow.o
+debug/openlocationcode.o
+debug/markers_qml.o
+debug/QmlMap_qml.o
+debug/qmlcache_loader.o
+debug/qrc_images_qmlcache.o
+debug/moc_Dialogue.o
+debug/moc_autohidedockwidget.o
+debug/moc_mainwindow.o

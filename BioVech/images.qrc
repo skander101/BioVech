@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/res">
+        <file>Logo.png</file>
+        <file>Dashbord Management.png</file>
+        <file>marker.png</file>
+    </qresource>
+    <qresource prefix="/Maps">
+        <file>QmlMap.qml</file>
+        <file>markers.qml</file>
+    </qresource>
+</RCC>

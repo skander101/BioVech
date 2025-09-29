@@ -1,0 +1,15 @@
+release/Dialogue.o
+release/Evenement.o
+release/autohidedockwidget.o
+release/codearea.o
+release/connection.o
+release/main.o
+release/mainwindow.o
+release/openlocationcode.o
+release/markers_qml.o
+release/QmlMap_qml.o
+release/qmlcache_loader.o
+release/qrc_images_qmlcache.o
+release/moc_Dialogue.o
+release/moc_autohidedockwidget.o
+release/moc_mainwindow.o

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/res">
+        <file alias="Logo.png">../../Logo.png</file>
+        <file alias="Dashbord Management.png">../../Dashbord Management.png</file>
+        <file alias="marker.png">../../marker.png</file>
+    </qresource>
+    <qresource prefix="/Maps">
+        <file alias="QmlMap.qml">../../QmlMap.qml</file>
+        <file alias="markers.qml">../../markers.qml</file>
+    </qresource>
+</RCC>

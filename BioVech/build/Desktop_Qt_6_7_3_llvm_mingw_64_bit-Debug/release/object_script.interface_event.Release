@@ -1,0 +1,15 @@
+release/Dialogue.o
+release/Evenement.o
+release/autohidedockwidget.o
+release/codearea.o
+release/connection.o
+release/main.o
+release/mainwindow.o
+release/openlocationcode.o
+release/routingservice.o
+release/qrc_Static.o
+release/qrc_images.o
+release/moc_Dialogue.o
+release/moc_autohidedockwidget.o
+release/moc_mainwindow.o
+release/moc_routingservice.o
